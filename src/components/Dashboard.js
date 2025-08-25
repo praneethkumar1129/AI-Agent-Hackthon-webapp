@@ -1,11 +1,9 @@
 import React, { useState } from 'react';
-import { Send, History, LogOut, Bot, User, Loader } from 'lucide-react';
-import { useNavigate } from 'react-router-dom';
+import { LogOut, Bot, User } from 'lucide-react';
 import ChatBot from './ChatBot';
 import { currentApiService } from '../config/api';
 
 const Dashboard = ({ user, onLogout }) => {
-  const navigate = useNavigate();
   const [messages, setMessages] = useState([
     {
       id: 1,
@@ -47,31 +45,7 @@ const Dashboard = ({ user, onLogout }) => {
     }
   };
 
-  const generateResponse = (query) => {
-    const lowerQuery = query.toLowerCase();
-    
-    if (lowerQuery.includes('leave') || lowerQuery.includes('vacation')) {
-      return "Based on our HR policies:\n\n• Annual Paid Leave: 18 days\n• Sick Leave: 12 days (no carry forward)\n• Casual Leave: 7 days (approval required)\n• Maternity Leave: 26 weeks\n• Paternity Leave: 10 days\n\nWould you like more details about any specific leave type?";
-    }
-    
-    if (lowerQuery.includes('working hours') || lowerQuery.includes('attendance')) {
-      return "Our attendance policy includes:\n\n• Working hours: 9:30 AM – 6:30 PM\n• Lunch break: 1 hour\n• Tea breaks: 2 breaks of 15 minutes each\n• Grace time: 15 minutes allowed (max 3 times/month)\n• Half-day marked if late > 2 hours";
-    }
-    
-    if (lowerQuery.includes('brand') || lowerQuery.includes('logo') || lowerQuery.includes('colors')) {
-      return "Our brand guidelines specify:\n\n• Logo: Only official PNG/SVG formats allowed\n• Primary colors: #0052cc (Blue), #36B37E (Green)\n• Fonts: Montserrat for headings, Roboto for body text\n• Important: Do not alter brand assets\n\nNeed help with specific brand materials?";
-    }
-    
-    if (lowerQuery.includes('password') || lowerQuery.includes('security') || lowerQuery.includes('2fa')) {
-      return "IT Security requirements:\n\n• Strong passwords (minimum 12 characters)\n• Two-Factor Authentication (2FA) required for critical systems\n• Company-approved antivirus and firewall mandatory\n• Data encryption required for laptops and mobile devices\n\nNeed help setting up 2FA?";
-    }
-    
-    if (lowerQuery.includes('remote') || lowerQuery.includes('vpn') || lowerQuery.includes('work from home')) {
-      return "Remote access policy:\n\n• Access only via secure VPN\n• Avoid public Wi-Fi unless VPN is active\n• Log off after work hours\n• Access logs monitored by IT security\n\nContact IT for VPN setup assistance.";
-    }
-    
-    return "I'm sorry, I couldn't find specific information about your query in our current knowledge base. Please contact:\n\n📞 Company Helpline: 8500\n📧 Email: company.ac.in.com\n\nOur support team will be happy to assist you further!";
-  };
+
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-100 to-blue-300">
