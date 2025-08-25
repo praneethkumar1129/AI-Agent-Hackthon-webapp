@@ -93,5 +93,5 @@ export const mockApiService = {
   }
 };
 
-// Use mock service for development, real service for production
-export const currentApiService = process.env.NODE_ENV === 'production' ? apiService : mockApiService;
+// Use mock service for demo (since AWS backend is not deployed yet)
+export const currentApiService = mockApiService;
